@@ -26,8 +26,8 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build": "tsc -b ./tsconfig.build.json",
-    "lint": "eslint ./**/*.ts",
-    "lint:fix": "eslint ./**/*.ts --fix",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
     "prepublishOnly": "pnpm build",
     "release": "standard-version",
     "release:major": "standard-version --release-as major",
@@ -41,6 +41,7 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@types/babel__core": "^7.1.16",
     "@types/node": "^16.10.1",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",
