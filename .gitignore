@@ -1,0 +1,9 @@
+.idea
+.tmp
+.pnpm-debug.log
+.eslintcache
+node_modules
+.DS_Store
+npm-debug.log
+coverage
+lib
