@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.15.5",
-    "babel-plugin-rewrite-module-path": "^0.0.3"
+    "babel-plugin-rewrite-module-path": "^0.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
