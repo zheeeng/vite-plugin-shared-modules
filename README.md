@@ -37,11 +37,17 @@ Use it as simple as:
 // vite.config.ts
 import { defineConfig } from 'vite';
 import sharedModulesPlugin from 'vite-plugin-shared-modules'
+import tsconfigPaths from 'rollup-plugin-tsconfig-paths';
 
 export default defineConfig({
   plugins: [
     sharedModulesPlugin({
       packageName: '@monorepo/shared',
+    }),
+    // necessary for resolving modules in `node_modules`
+    tsconfigPaths({
+      // specify the project's tsconfig.json, which configured paths mapping.
+      tsConfigPath: join(__dirname, '../../tsconfig.json')
     }),
   ]
 });
@@ -61,7 +67,7 @@ import foo from '@monorepo/shared/node_modules/foo'
 import bar from '@monorepo/shared/node_modules/bar'
 ```
 
-moreover for getting type-safe, recommend add tsconfig paths mapping:
+moreover for getting type-safe, add tsconfig paths mapping:
 
 ```json
 // tsconfig.json
