@@ -37,10 +37,13 @@ export const sharedModulesPlugin = (sharedModulesPluginOption: SharedModulesPlug
           ]
         })
 
-        return transformed?.code
+        return {
+          code: transformed?.code ?? undefined,
+          map: transformed?.map ?? undefined,
+        }
       }
 
-      return src
+      return
     },
   })
 }
