@@ -32,6 +32,7 @@ export const sharedModulesPlugin = (sharedModulesPluginOption: SharedModulesPlug
           }
         }
         const transformed = await transformAsync(src, {
+          ast: true,
           plugins: [
             [babelPluginRewriteModulePath, rewriteModulePathOptions]
           ]
