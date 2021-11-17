@@ -7,15 +7,17 @@ export type SharedModulesPluginOption = {
   packageName: string,
   subpath?: string,
   nodeModules?: string,
+  sourceMap?: boolean,
 }
 
 export const defaultSharedModules = {
   subpath: '',
   nodeModules: 'node_modules',
+  sourceMap: true,
 }
 
 export const sharedModulesPlugin = (sharedModulesPluginOption: SharedModulesPluginOption): Plugin => {
-  const { packageName, subpath, nodeModules } = { ...defaultSharedModules, ...sharedModulesPluginOption }
+  const { packageName, subpath, nodeModules, sourceMap } = { ...defaultSharedModules, ...sharedModulesPluginOption }
 
   const sharedModulesString = path.join(packageName, subpath)
   const nodeModulesString = path.join(packageName, nodeModules)
@@ -32,7 +34,7 @@ export const sharedModulesPlugin = (sharedModulesPluginOption: SharedModulesPlug
           }
         }
         const transformed = await transformAsync(src, {
-          ast: true,
+          sourceMaps: sourceMap ? true : false,
           plugins: [
             [babelPluginRewriteModulePath, rewriteModulePathOptions]
           ]
