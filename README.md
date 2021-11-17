@@ -94,6 +94,7 @@ export type SharedModulesPluginOption = {
   packageName: string,
   subpath?: string,
   nodeModules?: string,
+  sourceMap?: boolean,
 }
 ```
 
@@ -103,5 +104,6 @@ The default options:
 export const defaultSharedModules = {
   subpath: '',
   nodeModules: 'node_modules',
+  sourceMap: true,
 }
 ```
