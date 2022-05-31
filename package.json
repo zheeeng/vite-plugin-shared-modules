@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-shared-modules",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Alias node_modules to specific one",
   "keywords": [
     "vite-plugin",

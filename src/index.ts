@@ -1,4 +1,5 @@
 import type { Plugin } from 'vite'
+import { normalizePath } from 'vite'
 import { transformAsync } from '@babel/core'
 import babelPluginRewriteModulePath, { RewriteModulePathOptions } from 'babel-plugin-rewrite-module-path'
 import path from 'path'
@@ -19,8 +20,8 @@ export const defaultSharedModules = {
 export const sharedModulesPlugin = (sharedModulesPluginOption: SharedModulesPluginOption): Plugin => {
   const { packageName, subpath, nodeModules, sourceMap } = { ...defaultSharedModules, ...sharedModulesPluginOption }
 
-  const sharedModulesString = path.join(packageName, subpath)
-  const nodeModulesString = path.join(packageName, nodeModules)
+  const sharedModulesString = normalizePath(path.join(packageName, subpath))
+  const nodeModulesString = normalizePath(path.join(packageName, nodeModules))
 
   return ({
     name: 'sharedModulesPlugin',
