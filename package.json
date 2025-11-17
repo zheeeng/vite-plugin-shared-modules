@@ -35,7 +35,7 @@
     "release:patch": "standard-version --release-as patch"
   },
   "dependencies": {
-    "@babel/core": "^7.28.4",
+    "@babel/core": "^7.28.5",
     "babel-plugin-rewrite-module-path": "^0.0.4"
   },
   "devDependencies": {
